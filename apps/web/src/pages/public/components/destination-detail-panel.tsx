@@ -197,6 +197,23 @@ export function DestinationDetailPanel({
                         </div>
                     ) : null}
 
+                    {destination.latitude != null && destination.longitude != null ? (
+                        <a
+                            href={`https://www.google.com/maps/search/?api=1&query=${destination.latitude},${destination.longitude}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-full bg-playful-indigo/10 px-3 py-1.5 text-xs font-semibold text-playful-indigo transition hover:bg-playful-indigo/20"
+                        >
+                            <HugeiconsIcon
+                                icon={MapPinIcon}
+                                size={14}
+                                strokeWidth={2}
+                                aria-hidden
+                            />
+                            Lihat di Google Maps
+                        </a>
+                    ) : null}
+
                     {destination.opening_hours ? (
                         <div className="flex items-start gap-2.5">
                             <HugeiconsIcon
