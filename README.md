@@ -10,6 +10,8 @@ pgx + PostgreSQL 16 di [`apps/api/`](./apps/api).
 
 ![Preview peta Jelajah Bangkalan](docs/assets/map-preview.png)
 
+![Panel detail destinasi](docs/assets/map-detail-preview.png)
+
 ## Fitur
 
 - Peta 3D miring dan bisa diputar, terrain, bangunan 3D.
