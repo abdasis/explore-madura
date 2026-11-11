@@ -1,0 +1,799 @@
+@import 'tailwindcss';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Design tokens: shadcn radix-nova preset (Geist + neutral primary). */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 12px);
+    --radius-4xl: calc(var(--radius) + 16px);
+    --font-heading: var(--font-sans);
+    --color-playful-canvas: var(--playful-canvas);
+    --color-playful-surface: var(--playful-surface);
+    --color-playful-ink: var(--playful-ink);
+    --color-playful-indigo: var(--playful-indigo);
+    --color-playful-edge: var(--playful-edge);
+    --color-playful-sunshine: var(--playful-sunshine);
+    --color-playful-green: var(--playful-green);
+    --color-playful-coral: var(--playful-coral);
+    --color-playful-line: var(--playful-line);
+    --font-playful-heading: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+    --font-playful-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+    --radius-playful-card: 22px;
+    --radius-playful-panel: 28px;
+    --radius-playful-control: 16px;
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --success: oklch(0.5 0.13 155);
+    --success-foreground: oklch(0.98 0.01 155);
+    --warning: oklch(0.55 0.14 70);
+    --warning-foreground: oklch(0.98 0.01 70);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --success: oklch(0.72 0.14 155);
+    --success-foreground: oklch(0.2 0.04 155);
+    --warning: oklch(0.78 0.14 80);
+    --warning-foreground: oklch(0.22 0.04 80);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    /* Soft scrollbar, same treatment as lazizakuntan. */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in oklab, var(--muted-foreground) 25%, transparent) transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: color-mix(in oklab, var(--muted-foreground) 20%, transparent);
+        border-radius: 9999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background: color-mix(in oklab, var(--primary) 45%, transparent);
+        background-clip: padding-box;
+    }
+
+    .scrollbar-none {
+        scrollbar-width: none;
+    }
+
+    .scrollbar-none::-webkit-scrollbar {
+        display: none;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-text-fill-color: inherit !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        transition:
+            background-color 9999s ease-in-out 0s,
+            color 9999s ease-in-out 0s;
+        caret-color: inherit;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+/* Motion: explicit properties only, 150-250ms, ease-out token. */
+@keyframes overlay-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes overlay-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes dialog-in {
+    from {
+        opacity: 0;
+        scale: 0.96;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes dialog-out {
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        opacity: 0;
+        scale: 0.96;
+    }
+}
+
+@keyframes menu-in {
+    from {
+        opacity: 0;
+        scale: 0.96;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes menu-out {
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        opacity: 0;
+        scale: 0.96;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:root {
+    color-scheme: light;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------------------
+   Public map surface — Playful UI.
+   Scoped to .public-playful so admin keeps the Plane shell untouched.
+   --------------------------------------------------------------------------- */
+
+.public-playful {
+    --playful-canvas: #f3f5ff;
+    --playful-surface: #ffffff;
+    --playful-ink: #1b2140;
+    --playful-indigo: #3d5afe;
+    --playful-edge: #2a3fcc;
+    --playful-sunshine: #ffc21a;
+    --playful-green: #22a06b;
+    --playful-coral: #e5484d;
+    --playful-line: color-mix(in oklab, var(--playful-indigo) 18%, #ffffff);
+    --playful-shadow-card:
+        0 2px 4px color-mix(in oklab, var(--playful-ink) 7%, transparent),
+        0 10px 24px color-mix(in oklab, var(--playful-ink) 10%, transparent);
+
+    color-scheme: light;
+    background: var(--playful-canvas);
+    color: var(--playful-ink);
+    font-family: var(--font-playful-body);
+    font-size: 16.5px;
+    line-height: 1.5;
+}
+
+.public-playful .playful-card {
+    background: var(--playful-surface);
+    border-radius: var(--radius-playful-card);
+    box-shadow: var(--playful-shadow-card);
+}
+
+.public-playful .playful-panel {
+    background: var(--playful-surface);
+    border-radius: var(--radius-playful-panel);
+    box-shadow: var(--playful-shadow-card);
+}
+
+@media (max-width: 767px) {
+    .public-playful .playful-panel {
+        border-radius: var(--radius-playful-panel) var(--radius-playful-panel) 0 0;
+    }
+}
+
+.public-playful .playful-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: var(--radius-playful-control);
+    font-family: var(--font-playful-heading);
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+        background-color 160ms ease,
+        box-shadow 160ms ease,
+        color 160ms ease,
+        transform 120ms ease;
+}
+
+.public-playful .playful-button-primary {
+    background: var(--playful-indigo);
+    color: #ffffff;
+    box-shadow: 0 4px 0 var(--playful-edge);
+}
+
+.public-playful .playful-button-primary:hover {
+    background: color-mix(in oklab, var(--playful-indigo) 88%, var(--playful-ink));
+}
+
+.public-playful .playful-button-primary:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 var(--playful-edge);
+}
+
+.public-playful .playful-button-secondary {
+    background: var(--playful-surface);
+    color: var(--playful-indigo);
+    box-shadow:
+        inset 0 0 0 2px var(--playful-line),
+        0 3px 0 var(--playful-line);
+}
+
+.public-playful .playful-button-secondary:hover {
+    background: color-mix(in oklab, var(--playful-canvas) 70%, var(--playful-surface));
+}
+
+.public-playful .playful-button-secondary:active {
+    transform: translateY(2px);
+    box-shadow:
+        inset 0 0 0 2px var(--playful-line),
+        0 1px 0 var(--playful-line);
+}
+
+.public-playful .playful-icon-button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    padding: 0;
+    border-radius: var(--radius-playful-control);
+    background: var(--playful-surface);
+    color: var(--playful-indigo);
+    box-shadow:
+        inset 0 0 0 2px var(--playful-line),
+        0 3px 0 var(--playful-line);
+    transition:
+        background-color 160ms ease,
+        box-shadow 160ms ease,
+        transform 120ms ease;
+}
+
+.public-playful .playful-icon-button:active {
+    transform: translateY(2px);
+    box-shadow:
+        inset 0 0 0 2px var(--playful-line),
+        0 1px 0 var(--playful-line);
+}
+
+.public-playful .playful-icon-button[aria-pressed='true'] {
+    background: var(--playful-indigo);
+    color: #ffffff;
+    box-shadow:
+        inset 0 0 0 2px var(--playful-indigo),
+        0 3px 0 var(--playful-indigo);
+}
+
+/* Toggle mode peta di dalam grup kontrol zoom MapLibre. */
+.public-playful .maplibregl-ctrl-group {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow:
+        0 2px 4px color-mix(in oklab, var(--playful-ink) 8%, transparent),
+        0 10px 24px color-mix(in oklab, var(--playful-ink) 10%, transparent);
+}
+
+.public-playful .maplibregl-ctrl-group button {
+    width: 36px;
+    height: 36px;
+}
+
+.public-playful .playful-mode-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid var(--playful-line);
+    background: var(--playful-surface);
+    color: var(--playful-indigo);
+    cursor: pointer;
+    transition:
+        background-color 160ms ease,
+        color 160ms ease;
+}
+
+.public-playful .playful-mode-button::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+}
+
+.public-playful .playful-mode-button:hover {
+    background: color-mix(in oklab, var(--playful-canvas) 65%, var(--playful-surface));
+}
+
+.public-playful .playful-mode-button[aria-pressed='true'] {
+    background: var(--playful-indigo);
+    color: #ffffff;
+}
+
+.public-playful .playful-mode-button:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--playful-indigo) 70%, #ffffff);
+    outline-offset: -3px;
+}
+
+.public-playful .playful-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid var(--playful-line);
+    background: var(--playful-surface);
+    color: var(--playful-ink);
+    font-family: var(--font-playful-heading);
+    font-size: 14px;
+    font-weight: 600;
+    transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        color 160ms ease;
+}
+
+.public-playful .playful-chip[aria-pressed='true'] {
+    background: var(--playful-indigo);
+    border-color: var(--playful-indigo);
+    color: #ffffff;
+}
+
+.public-playful .playful-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--playful-canvas);
+    color: var(--playful-indigo);
+    font-family: var(--font-playful-heading);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.public-playful .playful-input {
+    height: 44px;
+    border-radius: var(--radius-playful-control);
+    border: 2px solid var(--playful-line);
+    background: var(--playful-surface);
+    color: var(--playful-ink);
+    font-family: var(--font-playful-body);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.public-playful .playful-input::placeholder {
+    color: color-mix(in oklab, var(--playful-ink) 45%, transparent);
+}
+
+.public-playful .playful-input:focus-visible {
+    border-color: var(--playful-indigo);
+    outline: 3px solid color-mix(in oklab, var(--playful-indigo) 55%, #ffffff);
+    outline-offset: 2px;
+}
+
+.public-playful .playful-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--playful-surface);
+    color: var(--playful-indigo);
+    font-family: var(--font-playful-heading);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow:
+        inset 0 0 0 2px var(--playful-line),
+        0 3px 0 var(--playful-line);
+    transition:
+        background-color 160ms ease,
+        color 160ms ease;
+}
+
+.public-playful .playful-link:hover {
+    background: color-mix(in oklab, var(--playful-canvas) 70%, var(--playful-surface));
+}
+
+.public-playful .playful-button:focus-visible,
+.public-playful .playful-icon-button:focus-visible,
+.public-playful .playful-chip:focus-visible,
+.public-playful .playful-link:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--playful-indigo) 70%, #ffffff);
+    outline-offset: 2px;
+}
+
+/* Map canvas surface and controls. */
+.public-playful .maplibregl-map {
+    background: var(--playful-canvas);
+}
+
+.public-playful .maplibregl-ctrl-group {
+    overflow: hidden;
+    border-radius: var(--radius-playful-control);
+    background: var(--playful-surface);
+    box-shadow: var(--playful-shadow-card);
+}
+
+.public-playful .maplibregl-ctrl-group button {
+    width: 44px;
+    height: 44px;
+}
+
+.public-playful .maplibregl-ctrl-group button + button {
+    border-top: 1px solid var(--playful-line);
+}
+
+.public-playful .maplibregl-ctrl-group button:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--playful-indigo) 70%, #ffffff);
+    outline-offset: -3px;
+}
+
+.public-playful .maplibregl-ctrl-attrib {
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--playful-surface) 85%, transparent);
+    font-family: var(--font-playful-body);
+}
+
+.public-playful .maplibregl-ctrl-attrib a {
+    color: var(--playful-indigo);
+}
+
+/* Playful destination marker: white pin, indigo ring, spring lift when active. */
+.public-playful .destination-marker {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--playful-indigo);
+    border-radius: 16px;
+    background: var(--playful-surface);
+    color: var(--playful-indigo);
+    box-shadow:
+        0 2px 4px color-mix(in oklab, var(--playful-ink) 12%, transparent),
+        0 8px 18px color-mix(in oklab, var(--playful-ink) 10%, transparent);
+    cursor: pointer;
+    transition:
+        transform 200ms cubic-bezier(0.3, 1.6, 0.5, 1),
+        box-shadow 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease;
+}
+
+.public-playful .destination-marker:hover {
+    transform: translateY(-2px);
+}
+
+.public-playful .destination-marker[data-active='true'] {
+    transform: translateY(-4px);
+    background: var(--playful-indigo);
+    color: #ffffff;
+    box-shadow:
+        0 4px 8px color-mix(in oklab, var(--playful-ink) 16%, transparent),
+        0 14px 26px color-mix(in oklab, var(--playful-indigo) 28%, transparent);
+}
+
+.public-playful .destination-marker:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--playful-indigo) 70%, #ffffff);
+    outline-offset: 2px;
+}
+
+/* Kartu preview marker peta publik. Marker element sendiri yang jadi acuan
+   posisi (MapLibre memberi position: absolute), jadi tidak perlu wrapper. */
+.public-playful .destination-marker {
+    --hovered: 0;
+}
+
+.public-playful .destination-marker:focus-visible {
+    --hovered: 1;
+    z-index: 6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .public-playful .destination-marker:hover {
+        --hovered: 1;
+        z-index: 6;
+    }
+}
+
+.public-playful .marker-hover-card {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    width: 200px;
+    transform: translateX(-50%);
+    transform-origin: 50% 100%;
+    pointer-events: none;
+    text-align: left;
+}
+
+.public-playful .marker-hover-card-surface {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 16px;
+    background: var(--playful-surface);
+    box-shadow: var(--playful-shadow-card);
+    opacity: var(--hovered);
+    transform: translateY(calc((1 - var(--hovered)) * 8px));
+    transition:
+        transform 200ms ease-out,
+        opacity 200ms ease-out;
+}
+
+.public-playful .marker-hover-card-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-family: var(--font-playful-heading);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--playful-ink);
+}
+
+.public-playful .marker-hover-card-photos {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 64px;
+}
+
+.public-playful .marker-hover-card-photo {
+    flex: none;
+    width: 92px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--playful-surface);
+    box-shadow: 0 2px 6px color-mix(in oklab, var(--playful-ink) 14%, transparent);
+    opacity: var(--hovered);
+    transform: translate(
+            calc(var(--fan-x) * var(--hovered)),
+            calc((1 - var(--hovered)) * 10px)
+        )
+        rotate(calc(var(--fan-r) * var(--hovered)));
+    transform-origin: 50% 100%;
+    transition:
+        transform 200ms ease-out,
+        opacity 200ms ease-out;
+}
+
+.public-playful .marker-hover-card-photo + .marker-hover-card-photo {
+    margin-left: -56px;
+}
+
+.public-playful .marker-hover-card-photo[data-slot='0'] {
+    --fan-x: -14px;
+    --fan-r: -8deg;
+    z-index: 1;
+    transition-delay: 0ms;
+}
+
+.public-playful .marker-hover-card-photo[data-slot='1'] {
+    --fan-x: 0px;
+    --fan-r: 0deg;
+    z-index: 2;
+    transition-delay: 40ms;
+}
+
+.public-playful .marker-hover-card-photo[data-slot='2'] {
+    --fan-x: 14px;
+    --fan-r: 8deg;
+    z-index: 1;
+    transition-delay: 80ms;
+}
+
+.public-playful .marker-hover-card-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.public-playful .marker-hover-card-photo-fallback {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--playful-indigo);
+    background: linear-gradient(
+        140deg,
+        color-mix(in oklab, var(--playful-indigo) 20%, var(--playful-surface)),
+        color-mix(in oklab, var(--playful-sunshine) 18%, var(--playful-surface))
+    );
+}
+
+/* Kurangi gerak: kartu tetap muncul dengan fade singkat, tanpa fan-out. */
+@media (prefers-reduced-motion: reduce) {
+    .public-playful .destination-marker .marker-hover-card-surface,
+    .public-playful .destination-marker .marker-hover-card-photo {
+        transform: none;
+        transition:
+            opacity 120ms ease-out !important;
+    }
+
+    .public-playful .destination-marker .marker-hover-card-photo {
+        transition-delay: 0ms !important;
+    }
+}
+
+/* Admin map picker marker — Plane tokens. */
+.map-picker-marker {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--foreground);
+    box-shadow: 0 1px 2px color-mix(in oklab, var(--foreground) 16%, transparent);
+    cursor: pointer;
+}
+
+.map-picker-marker:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}

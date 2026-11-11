@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jelajah Bangkalan">
+    <rect width="64" height="64" rx="18" fill="#3d5afe"/>
+    <path d="M32 13c-8.8 0-16 7-16 15.6C16 40.1 32 53 32 53s16-12.9 16-24.4C48 20 40.8 13 32 13Z" fill="#fff"/>
+    <circle cx="32" cy="28.5" r="6.5" fill="#ffc21a"/>
+</svg>
