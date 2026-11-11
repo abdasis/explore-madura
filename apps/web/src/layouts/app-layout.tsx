@@ -50,7 +50,7 @@ export function AppLayout({ children }: PropsWithChildren) {
                                     aria-label="Buka atau tutup navigasi"
                                 />
                                 <span className="truncate text-[13px] font-medium text-muted-foreground">
-                                    Jelajah Bangkalan
+                                    Explore Madura
                                 </span>
                             </div>
 

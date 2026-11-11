@@ -21,7 +21,7 @@ const PublicBlogDetailPage = () => {
     const { posts, isLoading: isSidebarLoading } = usePublicPosts()
 
     useDocumentMeta({
-        title: post ? `${post.title} — Jelajah Bangkalan` : 'Memuat artikel — Jelajah Bangkalan',
+        title: post ? `${post.title} — Explore Madura` : 'Memuat artikel — Explore Madura',
         description: post?.excerpt,
         path: `/blog/${slug}`,
         image: post?.cover_url || null,

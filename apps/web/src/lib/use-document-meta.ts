@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const SITE_NAME = 'Jelajah Bangkalan'
+const SITE_NAME = 'Explore Madura'
 
 export type DocumentMeta = {
     title: string

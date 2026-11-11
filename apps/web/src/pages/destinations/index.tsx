@@ -46,7 +46,7 @@ const DestinationsPage = () => {
         <div className="space-y-5">
             <PageHeader
                 title="Destinasi"
-                description="Kelola titik wisata yang tampil di peta publik Jelajah Bangkalan."
+                description="Kelola titik wisata yang tampil di peta publik Explore Madura."
                 actions={
                     canWrite ? (
                         <Button size="sm" asChild>

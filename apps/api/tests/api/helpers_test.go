@@ -22,8 +22,8 @@ import (
 )
 
 const (
-	adminEmail    = "admin@jelajahbangkalan.test"
-	adminName     = "Admin Jelajah Bangkalan"
+	adminEmail    = "admin@exploremadura.test"
+	adminName     = "Admin Explore Madura"
 	adminPassword = "Admin#12345"
 )
 

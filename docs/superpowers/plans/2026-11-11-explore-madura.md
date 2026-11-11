@@ -1,4 +1,4 @@
-# Jelajah Bangkalan Implementation Plan
+# Explore Madura Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -68,8 +68,8 @@ Expected: sukses. Bila Go 1.25.6 menolak direktif `go 1.26.0`, ubah direktif men
 - [ ] **Step 4: Sesuaikan port dan proxy web**
 
 `vite.config.ts`: port 5180, `strictPort: true`, proxy `/api` dan `/uploads` ke `http://localhost:8091`.
-`package.json`: name `bangkalan-tourism-web`.
-`index.html`: title `Jelajah Bangkalan`.
+`package.json`: name `explore-madura-web`.
+`index.html`: title `Explore Madura`.
 
 - [ ] **Step 5: Hapus modul Notes**
 
@@ -223,7 +223,7 @@ Expected: PASS.
 
 - [ ] **Step 1: Ubah admin seed**
 
-Email `admin@jelajahbangkalan.test`, nama `Admin Jelajah Bangkalan`, permission `destination:read`, `destination:write`.
+Email `admin@exploremadura.test`, nama `Admin Explore Madura`, permission `destination:read`, `destination:write`.
 
 - [ ] **Step 2: Tambah seed destinasi**
 

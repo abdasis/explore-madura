@@ -1,4 +1,4 @@
-# Jelajah Bangkalan
+# Explore Madura
 
 Web informasi wisata Kabupaten Bangkalan. Halaman utama adalah peta 3D penuh layar
 (MapLibre GL JS) dengan marker berikon, animasi kamera ke titik wisata, panel
@@ -8,7 +8,7 @@ panel bergaya Plane.
 Monorepo: frontend React 19 + Vite di [`apps/web/`](./apps/web), API Go Fiber v3 +
 pgx + PostgreSQL 16 di [`apps/api/`](./apps/api).
 
-![Preview peta Jelajah Bangkalan](docs/assets/map-preview.png)
+![Preview peta Explore Madura](docs/assets/map-preview.png)
 
 ![Panel detail destinasi](docs/assets/map-detail-preview.png)
 
@@ -50,7 +50,7 @@ bun run dev
 - Web: `http://localhost:5180`
 - API: `http://localhost:8091`
 - Admin: `http://localhost:5180/login`
-- Kredensial seed: `admin@jelajahbangkalan.test` / `Admin#12345`
+- Kredensial seed: `admin@exploremadura.test` / `Admin#12345`
 
 Vite memproxy `/api` dan `/uploads` ke API. Ubah target lewat `API_PROXY_TARGET`.
 

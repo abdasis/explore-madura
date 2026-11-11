@@ -1,6 +1,6 @@
 # Explore Madura — API
 
-API Go Fiber v3 + pgx v5 + PostgreSQL 16 untuk Jelajah Bangkalan. Modul per domain
+API Go Fiber v3 + pgx v5 + PostgreSQL 16 untuk Explore Madura. Modul per domain
 di `internal/modules`: `auth`, `destinations`, dan `posts`. Alur dependensi satu
 arah: handler -> service -> repository -> domain.
 
@@ -23,7 +23,7 @@ Migrasi berjalan otomatis saat start. Seed idempoten:
 cd apps/api && set -a && . ./.env && set +a && go run ./cmd/seed
 ```
 
-Kredensial seed: `admin@jelajahbangkalan.test` / `Admin#12345`, permission
+Kredensial seed: `admin@exploremadura.test` / `Admin#12345`, permission
 `destination:read`, `destination:write`, `blog:read`, `blog:write`.
 
 ## Environment

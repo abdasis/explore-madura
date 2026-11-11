@@ -53,7 +53,7 @@ const PublicBlogListPage = () => {
     const { posts, isLoading, error, reload } = usePublicPosts()
 
     useDocumentMeta({
-        title: 'Blog Fakta Unik Madura — Jelajah Bangkalan',
+        title: 'Blog Fakta Unik Madura — Explore Madura',
         description:
             'Catatan ringan tentang budaya, kuliner, dan tempat yang membuat Madura istimewa.',
         path: '/blog',

@@ -58,10 +58,10 @@ export default function LoginPage() {
             <div className="w-full max-w-sm space-y-4">
                 <div className="flex items-center gap-2 px-1">
                     <div className="grid size-8 place-items-center rounded-md bg-primary text-xs font-semibold tracking-wide text-primary-foreground">
-                        JB
+                        EM
                     </div>
                     <div className="leading-tight">
-                        <p className="text-sm font-semibold tracking-tight">Jelajah Bangkalan</p>
+                        <p className="text-sm font-semibold tracking-tight">Explore Madura</p>
                         <p className="text-xs text-muted-foreground">Panel admin wisata</p>
                     </div>
                 </div>

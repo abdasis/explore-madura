@@ -57,14 +57,14 @@ export function AppSidebar({ className }: { className?: string }) {
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton asChild size="lg" tooltip="Jelajah Bangkalan">
-                            <Link to="/dashboard" aria-label="Jelajah Bangkalan, buka beranda">
+                        <SidebarMenuButton asChild size="lg" tooltip="Explore Madura">
+                            <Link to="/dashboard" aria-label="Explore Madura, buka beranda">
                                 <div className="grid aspect-square size-8 shrink-0 place-items-center rounded-md bg-primary text-xs font-semibold tracking-wide text-primary-foreground">
-                                    JB
+                                    EM
                                 </div>
                                 <div className="grid flex-1 gap-0.5 text-left leading-tight">
                                     <span className="truncate text-sm font-semibold tracking-tight">
-                                        Jelajah Bangkalan
+                                        Explore Madura
                                     </span>
                                     <span className="truncate text-xs text-muted-foreground">
                                         Admin wisata

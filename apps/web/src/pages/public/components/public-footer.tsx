@@ -21,7 +21,7 @@ export function PublicFooter() {
                         >
                             <HugeiconsIcon icon={Compass01Icon} size={20} strokeWidth={1.8} />
                         </span>
-                        Jelajah Bangkalan
+                        Explore Madura
                     </p>
                     <p className="max-w-sm text-sm text-playful-ink/65">
                         Peta wisata dan cerita fakta unik Madura, dari pantai sampai kuliner khas
@@ -63,7 +63,7 @@ export function PublicFooter() {
 
             <div className="border-t border-playful-line">
                 <p className="mx-auto w-full max-w-6xl px-4 py-5 text-xs font-semibold text-playful-ink/55">
-                    © {year} Jelajah Bangkalan
+                    © {year} Explore Madura
                 </p>
             </div>
         </footer>

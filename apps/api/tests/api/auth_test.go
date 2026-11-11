@@ -40,7 +40,7 @@ func TestLogin(t *testing.T) {
 	t.Run("email dinormalisasi", func(t *testing.T) {
 		application := newTestApp(t, newFakeRepo(t))
 
-		res := login(t, application, " Admin@JelajahBangkalan.Test ", adminPassword)
+		res := login(t, application, " Admin@ExploreMadura.Test ", adminPassword)
 		if res.status != http.StatusOK {
 			t.Fatalf("status = %d, want 200 (body=%s)", res.status, res.body)
 		}
@@ -56,7 +56,7 @@ func TestLogin(t *testing.T) {
 	t.Run("email tidak terdaftar", func(t *testing.T) {
 		application := newTestApp(t, newFakeRepo(t))
 
-		res := login(t, application, "tidak-ada@jelajahbangkalan.test", adminPassword)
+		res := login(t, application, "tidak-ada@exploremadura.test", adminPassword)
 		assertUnauthorized(t, res, "Email atau kata sandi salah.")
 	})
 

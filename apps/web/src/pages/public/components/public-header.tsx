@@ -56,7 +56,7 @@ export function PublicHeader({ overlay = false }: PublicHeaderProps) {
             <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4">
                 <Link
                     to="/"
-                    aria-label="Jelajah Bangkalan, buka peta"
+                    aria-label="Explore Madura, buka peta"
                     className={cn('flex min-h-11 items-center gap-2.5 rounded-xl', focusRing)}
                 >
                     <span
@@ -66,7 +66,7 @@ export function PublicHeader({ overlay = false }: PublicHeaderProps) {
                         <HugeiconsIcon icon={Compass01Icon} size={20} strokeWidth={1.8} />
                     </span>
                     <span className="font-playful-heading text-lg font-semibold tracking-tight text-playful-ink">
-                        Jelajah Bangkalan
+                        Explore Madura
                     </span>
                 </Link>
 

@@ -1,4 +1,4 @@
-# Jelajah Bangkalan — Desain
+# Explore Madura — Desain
 
 Tanggal: 2026-11-11
 Status: menunggu persetujuan
@@ -95,7 +95,7 @@ Langkah bootstrap:
 1. `gh repo clone abdasis/plane-admin-starter bangkalan-tourism -- --branch feat/go-fiber-modular-api`
 2. Hapus `.git` bawaan, lalu `git init` repo baru (tanpa commit otomatis).
 3. Ganti branding: judul dokumen, judul login, nama aplikasi di sidebar, seed
-   admin menjadi `admin@jelajahbangkalan.test` / `Admin#12345`.
+   admin menjadi `admin@exploremadura.test` / `Admin#12345`.
 4. Ganti module path Go dari `github.com/abdasis/plane-admin-starter/api`
    menjadi `github.com/abdasis/bangkalan-tourism/api` di `go.mod` dan seluruh
    import internal.
@@ -309,7 +309,7 @@ admin tidak berubah. Halaman publik tanpa dark mode.
 `PublicMapPage`:
 
 - Kontainer `fixed inset-0` (peta memenuhi viewport, tanpa sidebar).
-- Overlay kiri atas: nama "Jelajah Bangkalan", pencarian, chip filter kategori.
+- Overlay kiri atas: nama "Explore Madura", pencarian, chip filter kategori.
 - Overlay kanan atas: tombol reset kamera ke tampilan awal. Tidak ada tombol
   tema di halaman publik; basemap tetap terang.
 - Peta MapLibre: `pitch` 60, `maxPitch` 85, drag rotate aktif, terrain aktif
@@ -396,7 +396,7 @@ Blog berisi artikel fakta unik Madura yang dikelola admin:
 
 `cmd/seed` idempoten:
 
-- Admin `admin@jelajahbangkalan.test` / `Admin#12345`, permission
+- Admin `admin@exploremadura.test` / `Admin#12345`, permission
   `destination:read`, `destination:write`.
 - Kategori referensi bila belum ada.
 - Destinasi contoh (koordinat perkiraan, admin bisa koreksi), tanpa foto:
