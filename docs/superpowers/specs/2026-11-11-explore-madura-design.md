@@ -347,8 +347,8 @@ memori atas hasil itu. Tidak memakai React Query; cukup hook
 ## 9b. Header publik dan blog fakta unik Madura
 
 Header publik modern tampil di semua halaman publik (`/`, `/blog`,
-`/blog/:slug`): bar putih 64px dengan border bawah halus, brand "Jelajah
-Bangkalan" (mark + teks Fredoka), tautan Peta dan Blog, status aktif indigo, dan
+`/blog/:slug`): bar putih 64px dengan border bawah halus, brand "Explore
+Madura" (mark + teks Fredoka), tautan Peta dan Blog, status aktif indigo, dan
 menu ringkas di mobile. Di halaman peta header menjadi overlay di atas kanvas;
 toolbar pencarian bergeser ke bawah header.
 
